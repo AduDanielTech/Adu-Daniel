@@ -1,4 +1,4 @@
-const navToggle =document.getElementById('nav-toggle')
+/* const navToggle =document.getElementById('nav-toggle')
 const navOverlay =document.getElementById('nav-overlay')
 function toggleNav() {
     navToggle.classList.toggle('active-nav')
@@ -7,7 +7,7 @@ function toggleNav() {
 navToggle.addEventListener('click', toggleNav)
 
 
-
+ */
 const elements = document.querySelectorAll('.wow');
 
 
@@ -44,5 +44,90 @@ const currentYear = new Date().getFullYear();
 });
 
 
+const btns = document.querySelectorAll(".navs");
 
+btns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    const id = e.target.dataset.id;
+    if (id) {
+      
+      console.log('hey');
+      btns.forEach(function (btn) {
+        btn.classList.remove("active_nav");
+      });
+      e.target.classList.add("active_nav");
+    }
+  });
+});
 
+const sections = document.querySelectorAll("section");
+if (window.location.href.includes('project.html')) {
+  
+const projectClose = document.getElementById('close_icon')
+const projecTop = document.getElementById('Hotelzer')
+document.addEventListener('scroll', function () {
+  const windowHeight =  window.scrollY;
+
+   if (windowHeight < 40) {
+    projectClose.classList.remove("fixed_close");
+  } else { 
+    
+    projectClose.classList.add("fixed_close");
+   } 
+})
+}
+
+window.addEventListener("scroll", function () {
+  
+  const scrollY = window.scrollY;
+
+  
+  sections.forEach((section) => {
+    
+    const sectionTop = section.getBoundingClientRect().top;
+
+    
+    const navHeight = nav.getBoundingClientRect().height;
+
+    
+    if (sectionTop - navHeight <= 0) {
+      
+      const sectionId = section.getAttribute("id");
+
+      
+      btns.forEach(function (btn) {
+        btn.classList.remove("active_nav");
+      });
+
+      
+      const selectedBtn = document.querySelector(`.navs[data-id="${sectionId}"]`);
+      if (selectedBtn) {
+        selectedBtn.classList.add("active_nav");
+      }
+    }
+  });
+});
+// Select all anchor links that have smooth scrolling behavior
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+// Add click event listeners to the anchor links
+anchorLinks.forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Get the target element based on the anchor's href attribute
+    const target = document.querySelector(this.getAttribute('href'));
+
+    if (target) {
+      // Calculate the scroll position with an offset (if needed)
+      const offset = 20; // You can adjust this value
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      // Scroll smoothly to the target position
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
