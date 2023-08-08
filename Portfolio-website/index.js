@@ -107,27 +107,49 @@ window.addEventListener("scroll", function () {
     }
   });
 });
-// Select all anchor links that have smooth scrolling behavior
+
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-// Add click event listeners to the anchor links
+
 anchorLinks.forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
 
-    // Get the target element based on the anchor's href attribute
+    
     const target = document.querySelector(this.getAttribute('href'));
 
     if (target) {
-      // Calculate the scroll position with an offset (if needed)
-      const offset = 20; // You can adjust this value
+      
+      const offset = 20; 
       const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
 
-      // Scroll smoothly to the target position
+      
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
     }
   });
+});
+
+const imagesToLazyLoad = document.querySelectorAll('img[data-src]');
+
+const options = {
+  root: null, 
+  rootMargin: '0px',
+  threshold: 0.2 
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src; 
+      observer.unobserve(img); 
+    }
+  });
+}, options);
+
+imagesToLazyLoad.forEach(img => {
+  observer.observe(img);
 });
