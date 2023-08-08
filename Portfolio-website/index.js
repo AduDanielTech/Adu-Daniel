@@ -131,3 +131,35 @@ anchorLinks.forEach(anchor => {
     }
   });
 });
+
+
+  async function getImagesFromFolder(folderPath) {
+    const response = await fetch(folderPath);
+    const text = await response.text();
+
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(text, 'text/html');
+    const imageElements = htmlDoc.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".jpeg"]');
+
+    const imageUrls = Array.from(imageElements).map(element => element.href);
+    return imageUrls;
+  }
+
+  async function preloadImages(images) {
+    const preloadPromises = images.map(async imageUrl => {
+      const img = new Image();
+      img.src = imageUrl;
+      await img.decode(); // Wait for image to load
+    });
+
+    await Promise.all(preloadPromises);
+  }
+
+  window.onload = async function() {
+    const projectImageFolder = './image'; // Change to your folder path
+    const imageFilenames = await getImagesFromFolder(projectImageFolder);
+    await preloadImages(imageFilenames);
+  };
+
+
+
