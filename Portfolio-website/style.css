@@ -32,7 +32,7 @@ button{
     --grey-color:rgb(117, 116, 116);
       --header-text:1.5em ;
       --header-header-text:4rem ;
-      --about-me-text:1.6rem;
+      --about-me-text:1.8rem;
       --project-title: 2.5rem;
       --project-details:1.6rem;
       --project-description:1rem;
@@ -159,32 +159,32 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 60lvh;
+    height: fit-content;
     position :relative;
-    gap: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 6rem;
  }
- .landing-page > div{
-    height: 50%;
 
- }
  .about-1-const{
     height: 10% !important;
-    padding: 1rem m !important;
+    padding: 1rem  !important;
  }
  
 
  
  .page-intro{
-    margin-top: 3rem;
     font-weight: 200;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: var(--header-header-text);
+    margin-top: 1rem;
     flex-direction: column;
     letter-spacing: 1vw;
-    margin-bottom: -2rem;
+    text-transform: capitalize;
+ }
+ .skills_header{
+    margin: 15px 0px;
  }
 .landing-page h2{
     font-weight:500;
@@ -193,7 +193,7 @@ nav{
     right:20px;
 }
 .title-header{
-    margin:1rem 3rem;
+    
     align-items: start;
 
 }
@@ -298,9 +298,6 @@ h3 {
   
   /******* Middle section CSS Start ******/
   /* -------- Landing page ------- */
-  .project_section {
-    padding: 10px 50px;
-  }
   .project_section .owl-stage {
     margin: 15px 0;
     display: flex;
@@ -423,7 +420,6 @@ h3 {
     
     .project_section {
       overflow: hidden;
-      padding: 20px 30px;
     }
     .project_section .item {
       width: 450px;
@@ -444,7 +440,7 @@ h3 {
   
   @media (min-width: 768px) and (max-width: 991px) {
     :root{
-        --about-me-text:1.2rem;
+        --about-me-text:1.5rem;
         --project-description:1.3rem;
         --project-title: 1.7em;
         --project-links:0.7em;
@@ -749,6 +745,12 @@ footer a{
     display: flex;
     gap: 2rem;
 }
+.mail-icon{
+
+    transform: translateY(-5px);
+    fill: #a7a5a5;
+}
+
 .icons a:hover{
     transform: translateY(-10px);
 }
@@ -820,7 +822,6 @@ footer a{
 .skills{
     width: 100%;
     height: 100%;
-    padding: 2rem;
     display: flex;
     flex-wrap: wrap ;
     align-items: center;
@@ -852,7 +853,7 @@ box-shadow:  2px 2px 0px #666666,
  
  @media  (max-width: 280px) {
     :root{
-        --about-me-text:0.7rem;
+        --about-me-text:0.8rem;
         --project-title: 1.2em;
         --project-links:0.5em;
         --tag-text-size:0.7rem;
@@ -885,6 +886,7 @@ box-shadow:  2px 2px 0px #666666,
  .page-intro{
     margin-top: 1rem;
 }
+
     
 .nav-cont{
     display: flex;
@@ -1079,7 +1081,9 @@ text-transform: uppercase;
     width: 100%;
     height: 100%;
 }
-
+.icon-logo{
+    fill: white;
+}
 
 
 
@@ -1090,7 +1094,7 @@ text-transform: uppercase;
         --project-title: 1.4em;
         --project-links:0.7em;
         --tag-text-size:0.75rem  ;
-        --about-me-text:1.1rem;
+        --about-me-text:1.4rem;
         --projects-text-size: 15px;
         --projects-icon-size: 17px;
         --projects-desc-size: 10px;
@@ -1254,7 +1258,7 @@ text-transform: uppercase;
 
 @media (min-width: 600px) and (max-width: 850px) {
     :root{
-        --about-me-text:1.2rem;
+        --about-me-text:1.5rem;
         --project-description:1.3rem;
         --project-title: 1.7em;
         --project-links:0.7em;

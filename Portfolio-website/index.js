@@ -8,6 +8,14 @@ navToggle.addEventListener('click', toggleNav)
 
 
  */
+
+window.addEventListener('blur', () =>{
+  document.title = "We Miss You -Adu Daniel"
+})
+window.addEventListener('focus', () =>{
+  document.title = "Adu daniel Web-Develope"
+})
+
 const elements = document.querySelectorAll('.wow');
 
 
