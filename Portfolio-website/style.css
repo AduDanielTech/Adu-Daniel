@@ -199,9 +199,23 @@ nav{
 }
 
 
+.project-title{
+    font-family: var(----google-font) !important;
+    size: var(--project-title);
+    font-weight: 200;
+    letter-spacing: 2px;
+    align-items: center;
 
+}
 
-
+.item-desc{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.item-desc svg{
+    transform: translateY(5px);
+}
 
 
 
