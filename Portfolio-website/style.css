@@ -1296,6 +1296,12 @@ text-transform: uppercase;
         font-size: 0.8rem;
         gap: 1rem;
     }
+    .wide-image{
+        width: 100%;
+        height: 350px;
+        background-image: url(./image/me-pic.jpg);
+        border-radius: 50px;
+      }
    
     }
     
